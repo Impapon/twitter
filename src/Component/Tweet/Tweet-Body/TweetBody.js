@@ -1,39 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './TweetBody.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faExternalLinkSquareAlt, faReply, faRetweet, faShare} from '@fortawesome/free-solid-svg-icons'
+import {faDownload, faHeart, faRetweet, faSms} from '@fortawesome/free-solid-svg-icons'
 
 
-const TweetBody = () => {
-    const tweet = {
-        name: 'Mahadi hasan',
-        description: 'I am Mahadi and i am a pro programmer.I can solve any problem without thinking for double time i love to travel.I am Mahadi and i am a pro programmer.I can solve any problem without thinking for double time i love to travel.I am Mahadi and i am a pro programmer.I can solve any problem without thinking for double time i love to travel',
-    }
+const TweetBody = (props) => {
+  const [love,setLove] = useState(0)
+  const [retweet,setRetweet] =useState(0)
 
     return (
-        <div>
-            <Tweet name={tweet.name} desc={tweet.description}/>
-            <Tweet name={tweet.name} desc={tweet.description}/>
-            <Tweet name={tweet.name} desc={tweet.description}/>
+        <div className="eatch-tweet-body-container">
+            <h1>{props.tweet.name}</h1>
+            <p>{props.tweet.description}</p>
+            <div className="icon-handle">
+                <button>
+                    <FontAwesomeIcon icon={faSms}/>
+                    </button>
+                    <button onClick={()=> setRetweet(retweet+1)}>
+                    <FontAwesomeIcon icon={faRetweet}/> &nbsp;&nbsp;{retweet}
+                    </button>
+                <button onClick={()=> setLove(love+1)}>
+                    <FontAwesomeIcon icon={faHeart}/> &nbsp;&nbsp; {love}
+                    </button>
+                <button>
+                    <FontAwesomeIcon icon={faDownload}/>
+                    </button>
+            </div>
         </div>
     );
 };
 
-function Tweet(props) {
-    return (
-        <div className="eatch-tweet-body-container">
-            <h1>{props.name}</h1>
-            <p>{props.desc}</p>
-            <div className="icon-handle">
-                <button><FontAwesomeIcon icon={faReply}/></button>
-                <button><FontAwesomeIcon icon={faRetweet}/></button>
-                <button>
-                    <FontAwesomeIcon icon={faExternalLinkSquareAlt}/></button>
-                <button>
-                    <FontAwesomeIcon icon={faShare}/></button>
-            </div>
-        </div>
-    );
-}
+
 
 export default TweetBody;

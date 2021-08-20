@@ -4,6 +4,7 @@ import Header from '../src/Component/Tweet/Header/Header'
 import TweetBody from '../src/Component/Tweet/Tweet-Body/TweetBody'
 import WhatHappen from '../src/Component/whats-happening/WhatHappen'
 import Trend from '../src/Component/Trend/Trend'
+import Content from './Component/Tweet/Content/Content';
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
         <div className="tweet-body-container">
           <Header />
           <WhatHappen />
-          <TweetBody />
+       <Content/>
         </div>
 
         <div className="trending-container">
